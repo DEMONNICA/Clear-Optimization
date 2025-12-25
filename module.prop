@@ -1,0 +1,7 @@
+id=CLEAR
+name=Clear Optimization
+version=6.0.0
+versionCode=600
+author=@illumi
+description=This module is designed to optimize the Android system by deleting unnecessary garbage files (junk).
+banner=https://raw.githubusercontent.com/DEMONNICA/Clear-Optimization/refs/heads/main/CLEAR.jpg
