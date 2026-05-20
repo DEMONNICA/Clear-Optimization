@@ -1,7 +1,7 @@
 id=CLEAR
 name=Clear Optimization
-version=6.6.6
-versionCode=666
+version=7.0.0
+versionCode=700
 author=@illumi
 description=Optimize system performance by clearing unnecessary files and improving resource management.
 banner=https://raw.githubusercontent.com/DEMONNICA/Clear-Optimization/refs/heads/main/CLEAR.jpg
