@@ -1,26 +1,43 @@
-> ![Image](https://github.com/user-attachments/assets/ca003a2c-a420-4fca-920a-6154c5d502ac)
+> <img width="3264" height="1836" alt="Image" src="https://github.com/user-attachments/assets/91aa834a-6930-4d82-8ca9-75162976165c" />
 
 > [!NOTE]
 > ```
-> Optimizes GPS performance and stability by configuring system GPS files, applying targeted properties, and granting location permissions on every reboot.
+> Optimize system performance by clearing unnecessary files and improving resource management.
 > ```
 
 > [!IMPORTANT]
 > Features ✨:
-> 1. Writes optimized `gps.conf`, `gnss.conf`, `flp.conf`, and `gps.xml` on every boot.
-> 2. Enables multi-satellite support via `GPS`, `GLONASS`, `BeiDou`, `Galileo`, `QZSS`, and `SBAS`.
-> 3. Configures `SUPL`, `XTRA`, and `NTP` servers for faster assisted fix.
-> 4. Applies `persist.sys.gps.lpp` via `resetprop` only if present on the device.
-> 5. Activates high accuracy location mode and all location providers on every boot.
-> 6. Grants location permissions to `Google Play Services` and `Google Maps`.
-> 7. Broadcasts `android.location.PROVIDERS_CHANGED` to reload location providers after config apply.
-> 8. Backs up original GPS config files and restores them automatically on uninstall.
+> 1. FSTRIM Partition Optimization for trimming system partitions to enhance I/O performance.
+> 2. Empty Directory Cleanup to remove unused empty folders from internal storage.
+> 3. Application Cache Cleanup targeting cache directories and files across app data storage.
+> 4. System Junk Cleanup removing temporary files, thumbnail cache, compiled artifacts, system logs, recent tasks, and other system junk.
+> 5. Database Optimization running WAL checkpoint and VACUUM on all application databases to improve read performance and reduce file size.
+> 6. Kill Background Apps to terminate all third-party background applications, with Termux excluded from the process.
 
 > [!TIP]
 > 1. Supports `Magisk` `KernelSU` `KernelSU Next` `APatch` `SukiSU` and their variants.
 > 2. Minimum Android `10 SDK 29`.
-> 3. This module modifies files in `system/vendor/etc`. For proper system file overlay support, it is recommended to use **Meta — Hybrid Mount**:
+> 3. To run the module, open **Termux** and follow the steps below:
+>    - **Method 1** — Enter root shell first, then launch the tool:
+>      ```sh
+>      su
+>      ```
+>      After pressing **Enter**, your prompt will change to `#`, meaning you are now in root mode. Then type:
+>      ```sh
+>      cleaner
+>      ```
+>      Press **Enter** to launch the optimization menu.
+>    - **Method 2** — Run directly in a single command:
+>      ```sh
+>      su -c cleaner
+>      ```
+>    > Both methods require root access. A root manager such as Magisk, KernelSU, or APatch must be installed on your device.
+> 4. If `cleaner` command is not found, install **Meta** to enable system binary overlay support:
 >    - [Download Meta — Hybrid Mount](https://github.com/Hybrid-Mount/meta-hybrid_mount/releases)
+> 5. If `cleaner` is still not accessible after installing Meta, run it directly via full path:
+>    ```sh
+>    su -c /data/adb/modules/CLEAR/system/bin/cleaner
+>    ```
 
 > [!WARNING]
 > Disclaimers 🛡️:
