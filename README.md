@@ -1,47 +1,26 @@
-> <img width="3264" height="1836" alt="Image" src="https://github.com/user-attachments/assets/91aa834a-6930-4d82-8ca9-75162976165c" />
+> ![Image](https://github.com/user-attachments/assets/ca003a2c-a420-4fca-920a-6154c5d502ac)
 
 > [!NOTE]
 > ```
-> Optimize system performance by clearing unnecessary files and improving resource management.
+> Optimizes GPS performance and stability by configuring system GPS files, applying targeted properties, and granting location permissions on every reboot.
 > ```
 
 > [!IMPORTANT]
 > Features ✨:
-> 1. Dalvik Cache Cleanup for clearing `/data/dalvik-cache/arm` and `/data/dalvik-cache/arm64` to optimize app performance.
-> 2. System Dropbox Log Removal targeting `/data/system/dropbox` to eliminate unnecessary log files.
-> 3. Temporary File Deletion scanning the entire system (excluding `/proc`, `/sys`, `/dev`, `/vendor`, `/data/data`, `/data/app`, and other critical paths) for files with temporary extensions such as `.tmp`, `.bak`, `.log`, `.old`, `.swp`, `.download`, `.partial`, `.temp`, `.dexopt`, and more.
-> 4. Tombstone Log Erasure in `/data/tombstones` to remove crash logs and free up system resources.
-> 5. Empty Directory Cleanup in `/storage/emulated/0` (excluding `/DCIM`, `/Android`, and `/Pictures`) to remove unused folders.
-> 6. Thumbnail Cache Clearing targeting all thumbnail directories (`.thumbnails`, `.thumbnail`, `Thumbnails`, `.thumb`, `.thumbs`) across `/storage/emulated`, `/data/media`, `/sdcard`, and common app paths including DCIM, Pictures, WhatsApp, and Telegram.
-> 7. System and Shader Cache Cleaning targeting cache, shader, and GL cache files in `/storage/emulated/0/Android/data`, `/cache`, `/data/user_de`, and app-level cache directories (`cache`, `code_cache`, `app_webview`) under `/data/data`.
-> 8. FSTRIM Partition Optimization for trimming `/data`, `/cache`, `/system`, `/system_ext`, `/product`, `/vendor`, `/odm`, `/oem`, `/metadata`, and `/mnt` partitions to enhance I/O performance, with automatic read-write remount fallback for read-only partitions.
-> 9. RAM Cache Clearing using `drop_caches` to free up memory and improve system responsiveness, with current value check to skip if already cleared.
-> 10. Force Stop Third-Party Apps using `am force-stop` to kill all non-system apps except whitelisted ones (Termux), ensuring system packages are never affected.
+> 1. Writes optimized `gps.conf`, `gnss.conf`, `flp.conf`, and `gps.xml` on every boot.
+> 2. Enables multi-satellite support via `GPS`, `GLONASS`, `BeiDou`, `Galileo`, `QZSS`, and `SBAS`.
+> 3. Configures `SUPL`, `XTRA`, and `NTP` servers for faster assisted fix.
+> 4. Applies `persist.sys.gps.lpp` via `resetprop` only if present on the device.
+> 5. Activates high accuracy location mode and all location providers on every boot.
+> 6. Grants location permissions to `Google Play Services` and `Google Maps`.
+> 7. Broadcasts `android.location.PROVIDERS_CHANGED` to reload location providers after config apply.
+> 8. Backs up original GPS config files and restores them automatically on uninstall.
 
 > [!TIP]
 > 1. Supports `Magisk` `KernelSU` `KernelSU Next` `APatch` `SukiSU` and their variants.
 > 2. Minimum Android `10 SDK 29`.
-> 3. To run the module, open **Termux** and follow the steps below:
->    - **Method 1** — Enter root shell first, then launch the tool:
->      ```sh
->      su
->      ```
->      After pressing **Enter**, your prompt will change to `#`, meaning you are now in root mode. Then type:
->      ```sh
->      cleaner
->      ```
->      Press **Enter** to launch the optimization menu.
->    - **Method 2** — Run directly in a single command:
->      ```sh
->      su -c cleaner
->      ```
->    > Both methods require root access. A root manager such as Magisk, KernelSU, or APatch must be installed on your device.
-> 4. If `cleaner` command is not found, install **Meta** to enable system binary overlay support:
+> 3. This module modifies files in `system/vendor/etc`. For proper system file overlay support, it is recommended to use **Meta — Hybrid Mount**:
 >    - [Download Meta — Hybrid Mount](https://github.com/Hybrid-Mount/meta-hybrid_mount/releases)
-> 5. If `cleaner` is still not accessible after installing Meta, run it directly via full path:
->    ```sh
->    su -c /data/adb/modules/CLEAR/system/bin/cleaner
->    ```
 
 > [!WARNING]
 > Disclaimers 🛡️:
@@ -58,8 +37,3 @@
 > 5. Redistribution, modification, or repackaging of these works without explicit permission from the author is strictly prohibited.
 > 6. Rooted devices with custom ROM may behave differently. Proceed with extra caution.
 > 7. Any modification applied to the system is your decision. Think before you act.
-
-> Download 📦:
-> - [Download now Clear Optimization.](https://shrinkme.click/4wdMx)
-> - [For Magisk Modules or other Plugins, please visit here.](https://t.me/Demoniica)
-----
