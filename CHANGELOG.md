@@ -2,13 +2,52 @@
 > - All significant changes to this project will be documented here.
 ---
 
+> [8.0.0]
+>
+> - Added `Kokoro Mask`, `VortexSU` detection to `detect_root_all` in `customize.sh`.
+> - Added fallback spoofed detection via `aapt` in `detect_root_all` in `customize.sh`.
+> - Added `calc_total()` helper function with `bc` and `awk` fallback for size calculation.
+> - Added `spinner()` animation during scan operations.
+> - Added `sqlite3` availability check in option 5 — displays error and skips if not found.
+> - Added `[!] No ... found.` message when scan result is empty — skips Y/N prompt.
+> - Added 6 new optimization options to `cleaner`.
+> - Added `[X]` as exit option to `cleaner`.
+> - Added Y/N confirmation before every operation with total size and file count summary.
+> - Added `Press Enter to continue...` prompt after each completed operation.
+> - Added Y/N confirmation before every operation with total size and file count summary.
+> - Added `Press Enter to continue...` prompt after each completed operation to prevent output overlap with menu.
+> - Added `Deleting: <path>` with path in red, `Trimming: <partition>`, `Stopping: <package>`, and `Optimizing: <path>` output formats.
+> - Changed FSTRIM — from manual remount loop across many partitions to `sm fstrim` + targeted loop on RW partitions only.
+> - Changed Kill Apps — from verbose `Skipped: <pkg>` output to silent whitelist skip.
+> - Changed `detect_root_all` detection order in `customize.sh` to APatch → KernelSU → Magisk.
+> - Changed `detect_root_all` to use `for` loop with `pkg:label` pattern instead of chained `if/elif` blocks.
+> - Changed APatch `.method` file to store 5 lines including `APATCH_APP_VER`.
+> - Changed `.method` reading order in `service.sh` to APatch → KernelSU → Magisk.
+> - Changed menu header from `Main Menu` to `System Optimization Menu`.
+> - Changed deletion output format from `${R}Deleting: ${N}$file` to `${N}Deleting: ${R}${file}${N}` — path now highlighted in red.
+> - Changed menu option format from `1. Option Name` to `[1] Option Name`.
+> - Changed subtitle from generic description to `Clear Optimization — System Maintenance Tool`.
+> - Removed option 9 `Clear RAM Cache`.
+> - Removed option 1 `Clear Dalvik Cache`.
+> - Removed option 2 `Remove System Dropbox Logs`.
+> - Removed option 3 `Delete Temporary Files`.
+> - Removed option 4 `Erase Tombstone Logs`.
+> - Removed option 5 `Remove Empty Directories` — replaced by new option 2 with broader scope.
+> - Removed option 6 `Clear Thumbnail Cache` — merged into option 4.
+> - Removed option 7 `Clean System and Shader Cache` — merged into option 4.
+> - Removed option 8 `FSTRIM` — replaced by new option 1 with `sm fstrim` support.
+> - Removed option 9 `Clear RAM Cache`.
+> - Removed `notify()` function and all notification calls.
+> - Removed all numbered comments from `cleaner` — no longer needed in new structure.
+---
+
 > [7.0.0]
 >
 > - Added numbered comments to all sections in `verify.sh` (1–5) with sub-comments (3a/3b/3c for `verify_module_id`, 4a/4b/4c for `extract`).
 > - Added numbered comments to all sections in `customize.sh` (1–12) with sub-comments (2a–2h for `detect_root_all`, 3a–3e for `device_info`, 6a–6c for `verify_module`, 9a–9b for `set_donate_link`).
 > - Added numbered comments to all sections in `service.sh` (1–3).
 > - Added numbered comments to all sections in `uninstall.sh` (1–4).
-> - Added numbered comments and sub-comments to all options in `cleaner` (0–10 with sub-comments 0a/0b, 1a/1b, 2a/2b, 3a–3c, 4a/4b, 5a/5b, 6a–6c, 7a–7c, 8a–8d, 9a–9c, 10a–10c).
+> - Added numbered comments and sub-comments to all options in `cleaner` (1–10 with sub-comments 1a/1b, 2a/2b, 3a–3c, 4a/4b, 5a/5b, 6a–6c, 7a–7c, 8a–8d, 9a–9c, 10a–10c) for options: Clear Dalvik Cache, Remove Dropbox Logs, Delete Temporary Files, Erase Tombstone Logs, Remove Empty Directories, Clear Thumbnail Cache, Clean System Cache, FSTRIM Optimization, Clear RAM Cache, Kill Third-Party Apps.
 > - Added `ReSukiSU`, `WeaveMask`, `Kitsune Mask`, `FolkLite`, and `FolkPatch` detection to `detect_root_all` in `customize.sh`.
 > - Added `ROOT_VERSION` extraction via `pm dump` for all KernelSU, Magisk, and APatch variants in `detect_root_all`.
 > - Added SDK 37 (`Cinnamon Bun [C]`) to Android codename list in `device_info`.
